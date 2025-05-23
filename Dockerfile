@@ -33,7 +33,7 @@ RUN --mount=target=/root/.cache/sccache,type=cache --mount=target=/build/target,
     mkdir /dylib && \
     cp /build/target/release/libonnxruntime.so /dylib/
 
-FROM debian:bookworm-slim
+FROM debian:12.11-slim
 VOLUME ["/repos", "/data"]
 RUN apt-get update && apt-get -y install openssl ca-certificates libprotobuf-lite32 && apt-get clean
 COPY model /model
